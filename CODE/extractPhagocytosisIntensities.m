@@ -1,17 +1,12 @@
 % analysePhagoCytosis
-
-
-
-
 if strcmp(filesep,'/')
     % Running in Mac
-baseDir             = '/Users/ccr22/Academic/work/neutrophils/sheffield/ClareMUIR/SingleSlice_mat_Or/';
-dir1                = dir (strcat(baseDir,'*.mat'));
-tracks              = readTracksXML('Cropped z7-14_Tracks.xml');
-    
+    baseDir             = '/Users/ccr22/Academic/work/neutrophils/sheffield/ClareMUIR/SingleSlice_mat_Or/';
+    dir1                = dir (strcat(baseDir,'*.mat'));
+    tracks              = readTracksXML('Cropped z7-14_Tracks.xml');
 else
     % running in windows
-
+    
 end
 
 
