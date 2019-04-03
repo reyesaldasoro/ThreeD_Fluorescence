@@ -1,7 +1,9 @@
 % analysePhagoCytosis
 if strcmp(filesep,'/')
     % Running in Mac
-    baseDir             = '/Users/ccr22/Academic/work/neutrophils/sheffield/ClareMUIR/SingleSlice_mat_Or/';
+    addpath('/Users/ccr22/Academic/GitHub/ThreeD_Fluorescence/CODE')
+    baseDir             = '/Users/ccr22/OneDrive - City, University of London/Acad/Research/Sheffield/SingleSlice_mat_Or/';
+    %baseDir             = '/Users/ccr22/Academic/work/neutrophils/sheffield/ClareMUIR/SingleSlice_mat_Or/';
     dir1                = dir (strcat(baseDir,'*.mat'));
     tracks              = readTracksXML('Cropped z7-14_Tracks.xml');
 else
@@ -13,7 +15,7 @@ end
 
 %% Iterate over a track
 
-selectTrack         = 1;
+selectTrack         = 4;
 lengthTrack         = size(tracks{selectTrack},1);
 for counterT = 201:2:lengthTrack
     % Load the data
@@ -26,12 +28,16 @@ for counterT = 201:2:lengthTrack
     rows            = tracks{selectTrack}(counterT,3);
     cols            = tracks{selectTrack}(counterT,2);
     
+    channel_1(rows-12:rows-10,cols-10:cols+10) =8000; 
+    channel_1(rows+10:rows+12,cols-10:cols+10) =8000; 
+    channel_1(rows-10:rows+10,cols-12:cols-10) =8000; 
+    channel_1(rows-10:rows+10,cols+10:cols+12) =8000; 
     channel_2(rows-12:rows-10,cols-10:cols+10) =8000; 
     channel_2(rows+10:rows+12,cols-10:cols+10) =8000; 
     channel_2(rows-10:rows+10,cols-12:cols-10) =8000; 
     channel_2(rows-10:rows+10,cols+10:cols+12) =8000; 
     
-    imagesc(channel_2)
+    imagesc([channel_1 channel_2])
     title(num2str(counterT))
     drawnow
     pause(0.1)
