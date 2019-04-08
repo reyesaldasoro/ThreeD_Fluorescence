@@ -47,10 +47,10 @@ for counterT = 350 %201:2:lengthTrack
     dataOut(:,:,2)      = channel_1/max(channel_1(:));
     dataOut(:,:,1)      = channel_2/max(channel_2(:));
     dataOut(:,:,3)      = 0;
-    dataOut(centroid_Row-12:centroid_Row-10,centroid_Col-10:centroid_Col+10,3) =1; 
-    dataOut(centroid_Row+10:centroid_Row+12,centroid_Col-10:centroid_Col+10,3) =1; 
-    dataOut(centroid_Row-10:centroid_Row+10,centroid_Col-12:centroid_Col-10,3) =	1; 
-    dataOut(centroid_Row-10:centroid_Row+10,centroid_Col+10:centroid_Col+12,3) =	1; 
+    dataOut(centroid_Row-12:centroid_Row-10,centroid_Col-10:centroid_Col+10,3) = 1; 
+    dataOut(centroid_Row+10:centroid_Row+12,centroid_Col-10:centroid_Col+10,3) = 1; 
+    dataOut(centroid_Row-10:centroid_Row+10,centroid_Col-12:centroid_Col-10,3) = 1; 
+    dataOut(centroid_Row-10:centroid_Row+10,centroid_Col+10:centroid_Col+12,3) = 1; 
     
     
     %imagesc([channel_1 channel_2])
