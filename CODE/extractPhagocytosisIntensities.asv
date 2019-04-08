@@ -8,21 +8,19 @@ if strcmp(filesep,'/')
     tracks              = readTracksXML('Cropped z7-14_Tracks.xml');
 else
     % running in windows
-    addpath('/Users/ccr22/Academic/GitHub/ThreeD_Fluorescence/CODE')
-    baseDir             = '/Users/ccr22/OneDrive - City, University of London/Acad/Research/Sheffield/SingleSlice_mat_Or/';
-    %baseDir             = '/Users/ccr22/Academic/work/neutrophils/sheffield/ClareMUIR/SingleSlice_mat_Or/';
+    addpath('D:\Acad\GitHub\ThreeD_Fluorescence\CODE')
+    baseDir             = 'D:\OneDrive - City, University of London\Acad\Research\Sheffield\SingleSlice_mat_Or\';
     dir1                = dir (strcat(baseDir,'*.mat'));
-    tracks              = readTracksXML('Cropped z7-14_Tracks.xml');
-   'D:\OneDrive - City, University of London\Acad\Research\Sheffield' 
+    tracks              = readTracksXML('Cropped z7-14_Tracks.xml');   
 end
 
 
 
 %% Iterate over a track
 
-selectTrack         = 4;
+selectTrack         = 1;
 lengthTrack         = size(tracks{selectTrack},1);
-for counterT = 201:2:lengthTrack
+for counterT = 350 %201:2:lengthTrack
     % Load the data
     load(strcat(baseDir,dir1(tracks{selectTrack}(counterT,1)+1).name))
     channel_1       = double(mean(dataIn(:,:,1:2:end),3));
@@ -41,6 +39,10 @@ for counterT = 201:2:lengthTrack
     channel_2(rows+10:rows+12,cols-10:cols+10) =8000; 
     channel_2(rows-10:rows+10,cols-12:cols-10) =8000; 
     channel_2(rows-10:rows+10,cols+10:cols+12) =8000; 
+    dataOut(:,:,1)  channel_1;
+    dataOut(:,:,2)  channel_2;
+    dataOut(:,:,1)  channel_1;
+    
     
     imagesc([channel_1 channel_2])
     title(num2str(counterT))
