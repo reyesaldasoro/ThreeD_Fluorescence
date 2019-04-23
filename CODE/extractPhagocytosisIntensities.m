@@ -15,7 +15,7 @@ end
 
 %% Iterate over a track
 
-selectTrack         = 4;
+selectTrack         = 3;
 lengthTrack         = size(tracks{selectTrack},1);
 for counterT = 201:2:lengthTrack
     % Load the data
