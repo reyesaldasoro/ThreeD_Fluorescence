@@ -25,7 +25,7 @@ load(strcat(baseDir,dir1(tracks{1}(1,1)+1).name));
 
 selectTrack         = 1;
 lengthTrack         = size(tracks{selectTrack},1);
-for counterT = 350 %201:2:lengthTrack
+for counterT =  201:2:lengthTrack
     % Load the data
     load(strcat(baseDir,dir1(tracks{selectTrack}(counterT,1)+1).name))
     channel_1       = double(mean(dataIn(:,:,1:2:end),3));
